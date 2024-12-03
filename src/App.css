@@ -1,3 +1,8 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   text-align: center;
 }
@@ -14,7 +19,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +40,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.index-shoppingcart{
+  z-index: 200;
+}
+
+.index-shoppingcart-header{
+  z-index: 100;
 }
