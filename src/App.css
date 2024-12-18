@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .App {
   text-align: center;
 }
@@ -49,4 +50,8 @@
 
 .index-shoppingcart-header{
   z-index: 100;
+}
+
+body {
+  @apply font-sans;
 }

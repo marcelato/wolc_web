@@ -23,7 +23,7 @@ const Navigate= ({title}) =>{
         >
           <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
-        <span>{title}</span>
+        <span className="text-gray-800" >{title}</span>
       </button>)
 
 }

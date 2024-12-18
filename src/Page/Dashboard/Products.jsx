@@ -49,13 +49,13 @@ const Products = () => {
     return (
         <>
         <Toaster richColors position="top-right" />
-        <div className="flex min-h-screen   bg-[#18181b] text-white">
+        <div className="flex min-h-screen bg-gray-100 ">
           <Sidebar/>
-          <div className="ml-64 flex-1 p-6 ">
-            <h2 className="text-3xl  text-white mb-6">Productos </h2>
+          <div className="ml-64 flex-1 text-gray-800  bg-white shadow-md rounded-3xl p-6  ">
+            <h2 className="text-3xl   mb-6">Productos </h2>
             <div>
-              <h3 className="text-xl font-bold text-white mb-4">Lista Productos</h3>
-              <table className="w-full   rounded-3xl  text-white">
+              <h3 className="text-xl font-bold  text-gray-800  mb-4">Lista Productos</h3>
+              <table className="w-full   rounded-3xl text-gray-800 ">
                 <thead>
                   <tr className="text-left">
                     <th className="p-4">Imagenes</th>

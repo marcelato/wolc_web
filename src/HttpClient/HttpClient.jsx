@@ -119,13 +119,46 @@ const PostCreateProduct = async ({name,description,Supplier_reference,Brand,quan
 }
 
 //cart product
-const PostCartProduct = async ({Username,Lastname,ID_card,Phone,Email,total_amount}) => {
+const PostCartProduct = async ({Username,
+                              Lastname,
+                              ID_card,
+                              Phone,
+                              Email,
+                              total_amount,
+                              address,
+                              city,
+                              state,
+                              postalCode,
+                              cartItems,
+                              number,
+                              exp_month,
+                              exp_year,
+                              cvc,
+                              card_holder
+                            
+                            }) => {
   return fetch(`${config.serverRoute}/api/cart/CartProduct`,{
     method:'POST',
     headers:{
         'Content-type':'application/json'
     },
-    body: JSON.stringify({Username,Lastname,ID_card,Phone,Email,total_amount})
+    body: JSON.stringify({Username,
+                        Lastname,
+                        ID_card,
+                        Phone,
+                        Email,
+                        total_amount,
+                        address,
+                        city,
+                        state,
+                        postalCode,
+                        cartItems,
+                        number,
+                        exp_month,
+                        exp_year,
+                        cvc,
+                        card_holder
+                      })
     }).then(resp =>{  
         if(!resp.ok) throw new Error('Response is not ok')
         return resp.json()
@@ -134,6 +167,57 @@ const PostCartProduct = async ({Username,Lastname,ID_card,Phone,Email,total_amou
     })
 }; 
 
+
+
+const GetOrdersCart = async () => {
+  try {
+      const resp = await fetch(`${config.serverRoute}/api/cart/OrderCart`, {
+        method: "GET",
+      });
+      if (!resp.ok) {
+        throw new Error('Response is not ok');
+      }
+      const data = await resp.json();
+      return data.query;
+    } catch (error) {
+     
+      throw error; // Puedes lanzar el error nuevamente o manejarlo de otra manera según tus necesidades
+    }
+};
+
+const GetOrdersCartDetail = async ({id}) => {
+  try {
+      const resp = await fetch(`${config.serverRoute}/api/cart/OrderCartDeatil/${id}`, {
+        method: "GET",
+      });
+      if (!resp.ok) {
+        throw new Error('Response is not ok');
+      }
+      const data = await resp.json();
+      return data.dataResp;
+    } catch (error) {
+      throw error; // Puedes lanzar el error nuevamente o manejarlo de otra manera según tus necesidades
+    }
+};
+
+
+const PostOrderUpdate = async ({status,productId}) => {
+  return fetch(`${config.serverRoute}/api/cart/OrderCartDeatilupdate`,{
+    method:'POST',
+    headers:{
+        'Content-type':'application/json'
+    },
+    body: JSON.stringify({status,productId})
+}).then(resp =>{
+    if(!resp.ok) throw new Error('Response is not ok')
+    return resp.json()
+}).then(resp=>{
+    return resp
+})
+};
+
+
+
 export default {
     PostCreateProduct,
     GetProduct,
@@ -141,7 +225,10 @@ export default {
     LoginService,
     PostProductDelete,
     GetProductHistory,
-    PostCartProduct
+    PostCartProduct,
+    GetOrdersCart,
+    GetOrdersCartDetail,
+    PostOrderUpdate
 }
 /**
 const products = [

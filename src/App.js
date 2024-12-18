@@ -19,11 +19,17 @@ import LoadingPage from './Page/Home/LoadingPage';
 import NoFound from './Page/Nofound/NoFound';
 import { Toaster } from 'sonner';
 import ShoppingCart from './Component/ShoppingCart/ShoppingCart';
+import Orders from './Page/Dashboard/Orders';
+import OrderItem from './Page/Dashboard/OrderItem';
+import Contact from './Page/Contact/Contact';
+import WhatsAppButton from './Component/WhatsAppButton/WhatsAppButton';
+import IdState from './Page/IdState/IdState';
 
 function App() {
 
   return (
     <Provider store={store}  >
+      <WhatsAppButton />
         <Toaster richColors position="top-right" />
         <AutoProvider>
         <BrowserRouter> 
@@ -35,6 +41,8 @@ function App() {
             <Route exact path="/Checkout" element={<Checkout/> } />
             <Route exact path="/CheckoutEmail" element={<CheckoutEmail/> } />
             <Route exact path="/Login" element={<Login/> } />
+            <Route exact path="/Contact" element={<Contact/> } />
+            <Route exact path="/IdState" element={<IdState/> } />
             <Route exact path="/UploadProduct"  element={
               <PrivateRoute>
                   <UploadProduct />
@@ -46,6 +54,22 @@ function App() {
                 <Dashboard />
                 </PrivateRoute>}
             />
+
+              <Route
+                path="/Dashboard/orders"
+                element={
+                  <PrivateRoute>
+                    <Orders />
+                    </PrivateRoute>}
+                />
+
+                <Route
+                path="/Dashboard/orders/:id"
+                element={
+                  <PrivateRoute>
+                    <OrderItem />
+                    </PrivateRoute>}
+                />
 
 
           <Route

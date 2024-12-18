@@ -20,68 +20,53 @@ const Sidebar = () => {
     navigate("/login")  
 }
 
-
-  console.log(jwt)
-
   return (
-    <div className="fixed top-0 left-0 h-full w-64 bg-[#09090b] flex flex-col justify-between p-4">
+    <div className="fixed top-0 left-0 h-full border-r border-gray-300   w-64 bg-white flex flex-col justify-between p-4">
       <div>
-        <h1 className="text-2xl font-bold text-white mb-6">WOLC</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mb-6">WOLC</h1>
         <nav>
           <ul className="space-y-4">
           <ul className="space-y-2">
       <li
-        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-800 hover:scale-105 ${
-          isActive('/Dashboard/home') ? 'bg-gray-800 scale-105' : ''
+        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-300 hover:scale-105 ${
+          isActive('/Dashboard/home') ? 'bg-gray-300 scale-105' : ''
         }`}
       >
         <Link 
           to="/Dashboard/home" 
-          className="flex items-center text-white space-x-2"
+          className="flex items-center text-gray-800 space-x-2"
         >
           <TiHome fontSize={20} />
           <span>Inicio</span>
         </Link>
       </li>
       <li
-        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-800 hover:scale-105 ${
-          isActive('/Dashboard/products') ? 'bg-gray-800 scale-105' : ''
+        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-300  hover:scale-105 ${
+          isActive('/Dashboard/products') ? 'bg-gray-300 scale-105' : ''
         }`}
       >
         <Link 
           to="/Dashboard/products" 
-          className="flex items-center text-white space-x-2"
+          className="flex items-center text-gray-800 space-x-2"
         >
           <FaProductHunt fontSize={20} />
           <span>Productos</span>
         </Link>
       </li>
       <li
-        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-800 hover:scale-105 ${
-          isActive('/Dashboard/orders') ? 'bg-gray-800 scale-105' : ''
+        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-300 hover:scale-105 ${
+          isActive('/Dashboard/orders') ? 'bg-gray-300 scale-105' : ''
         }`}
       >
         <Link 
           to="/Dashboard/orders" 
-          className="flex items-center text-white space-x-2"
+          className="flex items-center text-gray-800 space-x-2"
         >
           <TiHome fontSize={20} />
           <span>Órdenes</span>
         </Link>
       </li>
-      <li
-        className={`rounded-3xl p-2 transition-all duration-300 hover:bg-gray-800 hover:scale-105 ${
-          isActive('/Dashboard/settings') ? 'bg-gray-800 scale-105' : ''
-        }`}
-      >
-        <Link 
-          to="/Dashboard/settings" 
-          className="flex items-center text-white space-x-2"
-        >
-          <TiHome fontSize={20} />
-          <span>Configuraciones</span>
-        </Link>
-      </li>
+      
     </ul>
 
           </ul>
@@ -108,7 +93,7 @@ const Sidebar = () => {
             />
           
             <div>
-              <p className="text-white">{jwt?.name}</p>
+              <p className="text-black">{jwt?.name}</p>
             </div>
           </div>
         </div>

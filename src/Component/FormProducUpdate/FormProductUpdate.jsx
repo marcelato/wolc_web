@@ -18,15 +18,12 @@ function FormProductUpdate() {
     const [Code, setCode] = useState("");
     const [quantity, setQuantity] = useState(0);
     const [images, setImages] = useState([]);
-    const [amountInUsd, setAmountInUsd] = useState("0");
+    const [amountInUsd, setAmountInUsd] = useState("");
     const now = moment().format('YYYY-MM-DD HH:mm:ss');
 
     const fetData =async() =>{
         await GetCreateProductDetail({id})
     }
-
-    console.log(isLoadingCreateProduct)
-
 
     useEffect(() =>{
       fetData()
@@ -40,18 +37,19 @@ function FormProductUpdate() {
           setBrand(productDetail.Brand || "");
           setCode(productDetail.Code || "");
           setQuantity(productDetail.Quantity || 0);
-          setAmountInUsd(Number(productDetail.Price || 0).toLocaleString());
+          setAmountInUsd(Number(productDetail.Price || 0).toLocaleString("es-CO"));
           const imageArray = Array.isArray(productDetail.images) ? productDetail.images : [];
           setImages(imageArray.map((url, index) => ({ url, isMain: url === productDetail.img })));
         }
       }, [productDetail]);
       
-    const convertToInteger = (value) => {
-        const cleanedValue = value.replace(/,/g, ''); // Elimina las comas
+      const convertToInteger = (value) => {
+        const cleanedValue = value.replace(/\./g, ''); // Elimina los puntos
         return parseInt(cleanedValue, 10); // Convierte a entero
-    };
-
+    };;
+    
     const amountAsInteger = convertToInteger(amountInUsd);
+  
      const handleSubmit = async (e) => {
         e.preventDefault();
         if (validateForm()) {
@@ -77,7 +75,7 @@ function FormProductUpdate() {
     // Función para manejar cambios en el input
     const handleChange = (e) => {
       const value = e.target.value.replace(/\D/g, ''); 
-      setAmountInUsd(Number(value).toLocaleString()); 
+      setAmountInUsd(Number(value).toLocaleString("es-CO")); 
     };
 
     const handleImageChange = (index, file) => {
@@ -136,12 +134,12 @@ function FormProductUpdate() {
       return  <>
       
       <Navigate title={"Productos"} />
-          <h2 className="text-3xl font-bold text-gray-100  text-center mb-6">
+          <h2 className="text-3xl font-bold text-gray-800  text-center mb-6">
              Actualizar vo Producto
           </h2>
       <form
           onSubmit={handleSubmit}
-          className="max-w-7xl mx-auto p-8  rounded-3xl shadow-lg space-y-8"
+          className="max-w-7xl mx-auto p-8 bg-white   rounded-3xl shadow-lg space-y-8"
         >
 
           
@@ -150,7 +148,7 @@ function FormProductUpdate() {
         {/* Primera fila: Nombre y Código */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name" className="block text-gray-100 font-medium">
+            <label htmlFor="name" className="block text-gray-500 text-sm">
               Nombre <span className="text-red-500">*</span>
             </label>
             <input
@@ -158,7 +156,7 @@ function FormProductUpdate() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className={`mt-2 block w-full  bg-[#18181b] px-4 py-2 border ${
+              className={`mt-2 block w-full  bg-white text-gray-500 px-4 py-2 border ${
                 errors.name ? "border-red-500" : "border-gray-300"
               } rounded-lg focus:ring-2 focus:ring-blue-500`}
               placeholder="Ejemplo: Producto A"
@@ -168,7 +166,7 @@ function FormProductUpdate() {
           </div>
 
           <div>
-            <label htmlFor="code" className="block text-gray-100  font-medium">
+            <label htmlFor="code" className="block text-gray-500 text-sm">
               Código único <span className="text-red-500">*</span>
             </label>
             <input
@@ -176,7 +174,7 @@ function FormProductUpdate() {
               type="text"
               value={Code}
               onChange={(e) => setCode(e.target.value)}
-              className={`mt-2  block w-full px-4 bg-[#18181b] py-2 border ${
+              className={`mt-2  block w-full px-4 bg-white text-gray-500 py-2 border ${
                 errors.Code ? "border-red-500" : "border-gray-300"
               } rounded-lg focus:ring-2 focus:ring-blue-500`}
               placeholder="Ejemplo: 12345"
@@ -188,14 +186,14 @@ function FormProductUpdate() {
 
         {/* Segunda fila: Descripción */}
         <div>
-          <label htmlFor="description" className="block text-gray-100  font-medium">
+          <label htmlFor="description" className="block text-gray-500 text-sm ">
             Descripción
           </label>
           <textarea
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="mt-2 block w-full bg-[#18181b] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            className="mt-2 block w-full bg-white text-gray-500 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             placeholder="Describe el producto aquí..."
             defaultValue={productDetail.Description}
           ></textarea>
@@ -207,7 +205,7 @@ function FormProductUpdate() {
         {/* Tercera fila: Precio y Marca */}
         <div className="grid grid-cols-1  md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="price" className="block text-gray-100  font-medium">
+            <label htmlFor="price" className="block text-gray-500 text-sm ">
               Precio <span className="text-red-500">*</span>
             </label>
             <input
@@ -215,7 +213,7 @@ function FormProductUpdate() {
               type="text"
               value={amountInUsd}
               onChange={handleChange}
-              className={`mt-2 block bg-[#18181b] w-full px-4 py-2 border ${
+              className={`mt-2 block bg-white text-gray-500 w-full px-4 py-2 border ${
                 errors.amountInUsd ? "border-red-500" : "border-gray-300"
               } rounded-lg focus:ring-2 focus:ring-blue-500`}
               placeholder="$1.000.000"
@@ -226,7 +224,7 @@ function FormProductUpdate() {
           </div>
 
           <div>
-            <label htmlFor="brand" className="block text-gray-100  font-medium">
+            <label htmlFor="brand" className="block text-gray-500 text-sm">
               Marca
             </label>
             <input
@@ -234,7 +232,7 @@ function FormProductUpdate() {
               type="text"
               value={Brand}
               onChange={(e) => setBrand(e.target.value)}
-              className="mt-2 block w-full bg-[#18181b] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="mt-2 block w-full bg-white text-gray-500 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               defaultValue={productDetail.Brand}
             />
             {errors.Brand && <p className="text-sm text-red-500 mt-1">{errors.Brand}</p>}
@@ -243,7 +241,7 @@ function FormProductUpdate() {
 
         {/* Cuarta fila: Cantidad */}
         <div>
-          <label htmlFor="quantity" className="block text-gray-100  font-medium">
+          <label htmlFor="quantity" className="block text-gray-500 text-sm">
             Cantidad
           </label>
           <input
@@ -251,7 +249,7 @@ function FormProductUpdate() {
             type="number"
             value={quantity}
             onChange={(e) => setQuantity(e.target.value)}
-            className="mt-2 block w-full bg-[#18181b] px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            className="mt-2 block w-full bg-white text-gray-500 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             defaultValue={productDetail.Quantity}
           />
           {errors.quantity && (
@@ -260,19 +258,19 @@ function FormProductUpdate() {
         </div>
 
           <div>
-              <label className="block text-gray-100 ">Referencia del proveedor</label>
+              <label className="block text-gray-500 text-sm ">Referencia del proveedor</label>
               <input 
                   type="text"
                   value={Supplier_reference}
                   onChange={(e) => setSupplier_reference(e.target.value)}
-                  className="mt-2 block  bg-[#18181b] w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="mt-2 block  bg-white text-gray-500 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   defaultValue={productDetail.SupplierReference}
               />
               {errors.Supplier_reference && <p className="text-red-500">{errors.Supplier_reference}</p>}
           </div>
 
         <div>
-          <label className="block text-gray-100  font-medium">Imágenes</label>
+          <label className="block text-gray-500 text-sm">Imágenes</label>
           <div>
             {images.map((image, index) => (
               <div key={index} className="mt-4 flex items-center space-x-4">

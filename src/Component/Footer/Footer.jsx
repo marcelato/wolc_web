@@ -1,9 +1,31 @@
 import React from "react";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa6";
+import pdf from "../../image/terminoycondiciones.pdf"
+import pdfPrivacidad from "../../image/privadacidad.pdf"
+import cookies from "../../image/cookies.pdf"
+import devolucion from "../../image/devolucion.pdf"
+import preguntas from "../../image/preguntas.pdf"
+import tratamiento from "../../image/tratamiento.pdf"
+import { MdLocationOn, MdOutlineMail } from "react-icons/md";
 
 const Footer = () => {
+
+
+
+  const handleFacebook = () => {
+    window.open("https://www.facebook.com/share/1BeGguHWPA/?mibextid=LQQJ4d", "_blank");
+};
+
+const handleInstagram = () => {
+    window.open("https://www.instagram.com/cerraduras_wolcoficial/profilecard/?igsh=MjRzbmtpNjg2Z2Zp", "_blank");
+};
+
+
+
   return (
-    <footer className="bg-white text-gray-800 py-12">
-      <div className="container mx-auto px-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+    <footer className="bg-white mt-7 text-gray-800 py-12">
+      <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <div className="mb-6">
             <img
@@ -12,88 +34,78 @@ const Footer = () => {
               className="h-16"
             />
           </div>
+          <div  >
+              <span> Contáctanos</span>
+              <div className="flex space-x-4 mt-4 ">
+              <a onClick={handleFacebook} >
+                <i className="fab fa-facebook cursor-pointer " ><FaFacebook  color="black" fontSize={20}  /> </i>
+              </a>
+              <a onClick={handleInstagram}  >
+                <i className="fab fa-instagram cursor-pointer "><FaInstagram  color="black" fontSize={20}  /></i>
+              </a>
+            </div>
+
+          <div className="flex items-center mt-4" >
+            <FaWhatsapp fontSize={20} />
+              <a
+                href="https://wa.me/573184636416"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 underline ml-3"
+              >
+              +57 318 4636416
+              </a>
+          </div>
+
+          <div className="flex items-center mt-4" >
+          <MdOutlineMail color="black"  fontSize={20} />
+              <a
+                 href="mailto:cerradurasdigitaleswolc@gmail.com"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="text-gray-600 underline ml-3"
+              >
+              cerradurasdigitaleswolc@gmail.com
+              </a>
+          </div>
+
+          <div className="flex items-center mt-4" >
+          <MdLocationOn color="black"  fontSize={20} />
+              <a
+                  href="https://maps.app.goo.gl/KerAV66HMop4TgtEA?g_st=iwb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 underline text-center ml-3"
+              >
+                Cúcuta - Sala de Experiencia Av 2E # 13A-17 Local 4 - Caobos
+              </a>
+          </div>
+           
+          </div>
+         
         </div>
-        <div>
-          <h4 className="text-black font-semibold mb-4">Solutions</h4>
+        <div >
+          <h4 className="text-black font-semibold mb-4">Términos y condiciones</h4>
           <ul className="space-y-2 text-gray-600">
-            <li>Marketing</li>
-            <li>Analytics</li>
-            <li>Automation</li>
-            <li>Commerce</li>
-            <li>Insights</li>
+            <li> <a href={pdf} target="_blank" rel="noopener noreferrer">Términos y condiciones</a> </li>
+            <li><a href={pdfPrivacidad} target="_blank" rel="noopener noreferrer"> Política de privacidad</a></li>
+            <li><a href={cookies} target="_blank" rel="noopener noreferrer">Política de cookies</a> </li>
+            <li><a href={tratamiento} target="_blank" rel="noopener noreferrer">Política de datos</a> </li>
+            <li><a href={devolucion} target="_blank" rel="noopener noreferrer">Política de devoluciones</a></li>
           </ul>
+          <div>
+            <h4 className="text-black font-semibold mb-4 mt-4 ">Centro de ayuda</h4>
+            <ul className=" text-gray-600">
+              <li> <a href={preguntas} target="_blank" rel="noopener noreferrer">Preguntas frecuentes</a> </li>
+              <li> <a href={"/idState"} rel="noopener noreferrer" className="mt-2" >Estado del pedido</a> </li>
+            </ul>
         </div>
-        {/* Support */}
-        <div>
-          <h4 className="text-black font-semibold mb-4">Support</h4>
-          <ul className="space-y-2 text-gray-600">
-            <li>Submit ticket</li>
-            <li>Documentation</li>
-            <li>Guides</li>
-          </ul>
-        </div>
-        {/* Company */}
-        <div>
-          <h4 className="text-black font-semibold mb-4">Company</h4>
-          <ul className="space-y-2 text-gray-600">
-            <li>About</li>
-            <li>Blog</li>
-            <li>Jobs</li>
-            <li>Press</li>
-          </ul>
-        </div>
-        {/* Legal */}
-        <div>
-          <h4 className="text-black font-semibold mb-4">Legal</h4>
-          <ul className="space-y-2 text-gray-600">
-            <li>Terms of service</li>
-            <li>Privacy policy</li>
-            <li>License</li>
-          </ul>
         </div>
       </div>
-      {/* Divider */}
       <div className="border-t border-gray-200 my-8"></div>
-      {/* Newsletter */}
-      <div className="container mx-auto px-4 flex flex-col md:flex-row md:justify-between items-center text-center md:text-left">
-        <div className="mb-4 md:mb-0">
-          <h4 className="text-black font-semibold">Subscribe to our newsletter</h4>
-          <p className="text-sm text-gray-600">
-            The latest news, articles, and resources, sent to your inbox weekly.
-          </p>
-        </div>
-        <div className="flex items-center">
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="bg-gray-100 text-gray-800 px-4 py-2 rounded-l-md focus:outline-none focus:ring focus:ring-indigo-500"
-          />
-          <button className="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-500">
-            Subscribe
-          </button>
-        </div>
-      </div>
-      {/* Footer Bottom */}
       <div className="container mx-auto px-4 mt-12 flex flex-col md:flex-row justify-between items-center text-sm">
-        <p className="text-gray-600">© 2024 Your Company, Inc. All rights reserved.</p>
-        <div className="flex space-x-4 mt-4 md:mt-0">
-          {/* Social Media Icons */}
-          <a href="#" aria-label="Facebook" className="hover:text-indigo-600">
-            <i className="fab fa-facebook"></i>
-          </a>
-          <a href="#" aria-label="Instagram" className="hover:text-indigo-600">
-            <i className="fab fa-instagram"></i>
-          </a>
-          <a href="#" aria-label="X (Twitter)" className="hover:text-indigo-600">
-            <i className="fab fa-twitter"></i>
-          </a>
-          <a href="#" aria-label="GitHub" className="hover:text-indigo-600">
-            <i className="fab fa-github"></i>
-          </a>
-          <a href="#" aria-label="YouTube" className="hover:text-indigo-600">
-            <i className="fab fa-youtube"></i>
-          </a>
-        </div>
+        <p className="text-gray-600">© 2024  Copyright. Todos los derechos reservados.</p>
+        
       </div>
     </footer>
   );

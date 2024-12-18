@@ -101,7 +101,7 @@ const ShoppingCart = () => {
                 <div className="mt-6">
                   <Button
                     onClick={HandlCheckout}
-                    className="flex items-center w-full justify-center rounded-md border border-transparent bg-gray-800 px-6 py-3 text-base font-medium text-white shadow-sm "
+                    className="flex items-center w-full justify-center rounded-md border border-transparent bg-gray-800  px-6 py-3 text-base font-medium text-white shadow-sm "
                   >Checkout
                   </Button>
                 </div>

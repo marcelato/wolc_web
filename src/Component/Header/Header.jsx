@@ -3,33 +3,36 @@ import ShoppingCart from "../ShoppingCart/ShoppingCart.jsx";
 import { FiShoppingCart } from "react-icons/fi";
 import  AutoProvider  from "../../Usecontext/CartProvider.js";
 import { Link, useNavigate } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { BsHandbag } from "react-icons/bs";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 
 const Header = () => {
 
   const navigate = useNavigate();
   const {totalItems, setIsCartOpen ,isCartOpen} =useContext(AutoProvider)
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
 
   const toggleCart = () => {
     setIsCartOpen(!isCartOpen);
   };
 
- 
+
 const navigation = [
   { name: 'Producto', href: '/product' },
-  { name: 'Carateristicas', href: '#' },
-  { name: 'Ecommerce', href: '#' },
-  { name: 'Compania', href: '#' },
+  { name: 'Contactos', href: '/Contact' },
 ]
 
   return (
-    <header className="">
-       <header className="absolute z-30  inset-x-0 top-0 ">
+    <header
+    className="fixed top-0 left-0 right-0 z-50 backdrop-blur-lg"
+    
+  >
+
+
+  
+       <header className="">
         <nav aria-label="Global" className="flex items-center justify-between p-6 lg:px-8">
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5 cursor-pointer ">
@@ -42,14 +45,22 @@ const navigation = [
             </Link>
           </div>
           <div className="flex lg:hidden">
+
+          <div className="flex mr-4 items-center  cursor-pointer " onClick={toggleCart} >
+            <BsHandbag fontSize={25} />
+            <span className="text-sm font-medium">{totalItems}</span>
+          </div>
+          
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>
-              <FaUser aria-hidden="true" className="size-6" />
+              <GiHamburgerMenu    color="bg-gray-800" aria-hidden="true" className="size-6" />
             </button>
+
+     
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
@@ -76,8 +87,8 @@ const navigation = [
                 <span className="sr-only">Your Company</span>
                 <img
                   alt=""
-                  src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-                  className="h-8 w-auto"
+                  src="https://github.com/rolandoto/image-pms/blob/main/PNG/LG-AZUL.png?raw=true"
+                  className="h-14 w-auto"
                 />
               </a>
               <button
@@ -86,7 +97,7 @@ const navigation = [
                 className="-m-2.5 rounded-md p-2.5 text-gray-700"
               >
                 <span className="sr-only">Close menu</span>
-                <FaUser aria-hidden="true" className="size-6" />
+                <IoMdClose fontSize={30} aria-hidden="true"  />
               </button>
             </div>
             <div className="mt-6 flow-root">
@@ -103,12 +114,12 @@ const navigation = [
                   ))}
                 </div>
                 <div className="py-6">
-                  <a
+                  <Link to="/login"
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                    Ingresar
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

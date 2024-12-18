@@ -51,12 +51,11 @@ const DetailProduct = () => {
 
   return   <>
           <ShoppingCart />
-          <div className=" mt-32 min-h-screen p-6">
-            
+          <div className=" mt-32 z-999  min-h-screen p-6">
             <div className="max-w-5xl mx-auto bg-white p-6 rounded-3xl shadow-2xl">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="flex gap-4">
-                  <div className="flex flex-col gap-2">
+                  <div className="flex z-50 flex-col gap-2">
                     {images?.map((img, index) => (
                       <img
                         key={index}
@@ -83,13 +82,13 @@ const DetailProduct = () => {
                   <p className="text-gray-600">REF: {productDetail.SupplierReference}</p>
                   <p className="text-gray-600">SKU: FF-{productDetail.Code}</p>
                   <p className="text-3xl font-bold my-4">$  {productDetail?.Price?.toLocaleString('es-CO')} </p>
-                  <button  onClick={() => addToCart(productDetail)}   className="w-full bg-[#f3f4f6] text-black py-3 rounded-lg font-semibold"  >
+                  <button  onClick={() => addToCart(productDetail)}   className="w-full bg-gray-800  -z-50 text-white py-3 rounded-lg font-semibold"  >
                     Agregar al Carro
                   </button>
                 </div>
               </div>
               {/* Sección de especificaciones y descripción */}
-              <div className="mt-8 bg-gray-50 p-4 rounded-lg">
+              <div className="mt-8 bg-gray-50 p-4 rounded-3xl">
                 <h3 className="text-xl font-semibold">Especificaciones</h3>
                 <table className="w-full text-sm mt-4">
                   <tbody>
@@ -113,7 +112,7 @@ const DetailProduct = () => {
                 </table>
               </div>
 
-              <div className="mt-8 bg-gray-50 p-4 rounded-lg">
+              <div className="mt-8 bg-gray-50 p-4 rounded-3xl">
                 <h3 className="text-xl font-semibold">Información Adicional</h3>
                 <p className="mt-4">
                   <strong>Descripción:</strong><br />

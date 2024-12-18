@@ -7,23 +7,23 @@ import { useNavigate } from "react-router-dom";
 import CardProductDelete from "../../Component/CardProductDelete/CardProductDelete";
 
 const ProductDelete =() =>{
-    const {productHistory,isLoadingProductHistory,productHistoryError} =useSelector((state) => state.Product)
+  const {productHistory,isLoadingProductHistory,productHistoryError} =useSelector((state) => state.Product)
 
-   
-    const fillContent =()=>{
-        if(isLoadingProductHistory){
-          return <p>Cargando</p>
-        }
-        if(productHistoryError){
-          return <p>Error </p>
+  
+  const fillContent =()=>{
+      if(isLoadingProductHistory){
+        return <p>Cargando</p>
       }
-      
-      return <tbody>
-                {productHistory.map((product) => (
-                  <CardProductDelete key={product.ID} {...product} />
-                  ))}
-              </tbody>
+      if(productHistoryError){
+        return <p>Error </p>
     }
+    
+    return <tbody>
+              {productHistory.map((product) => (
+                <CardProductDelete key={product.ID} {...product} />
+                ))}
+            </tbody>
+  }
 
     const {GetCreateProductHistory} =useProduct()
 
@@ -36,14 +36,14 @@ const ProductDelete =() =>{
     },[])
     
     return <>
-         <div className="flex min-h-screen   bg-[#18181b] text-white">
+         <div className="flex min-h-screen   bg-gray-100  text-gray-800">
           <Sidebar/>
           <div className="ml-64 flex-1 p-6 ">   
              <Navigate title={"Productos"} /> 
-            <h2 className="text-3xl text-white mb-6">Productos eliminados </h2>
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4">Lista Productos eliminados</h3>
-              <table className="w-full   rounded-3xl  text-white">
+            <h2 className="text-3xl  mb-6">Productos eliminados </h2>
+            <div className="bg-white shadow-md rounded-3xl p-6" >
+              <h3 className="text-xl font-bold  mb-4">Lista Productos eliminados</h3>
+              <table className="w-full   rounded-3xl  ">
                 <thead>
                   <tr className="text-left">
                     <th className="p-4">Usuario</th>

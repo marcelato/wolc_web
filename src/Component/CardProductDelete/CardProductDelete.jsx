@@ -3,7 +3,7 @@ import React from "react"
 
 const CardProductDelete =({ID,img,Name,Quantity,Price,username,description,action}) =>{
 
-    return ( <tr key={ID} className="border-t rounded-3xl border-gray-700">
+    return ( <tr key={ID} className="rounded-3xl border-t border-gray-300">
                 <td className="p-4 flex items-center space-x-4">
                     <img
                         src="https://catalyst-demo.tailwindui.com/events/bear-hug.jpg"

@@ -6,7 +6,7 @@ const CreateProduct =() =>{
 
     return (
         <>
-            <div className="flex min-h-screen   bg-[#18181b] text-white">
+            <div className="flex min-h-screen   bg-gray-100 ">
                 <Sidebar/>
                 <div className="ml-64 flex-1 p-6 ">
                     <UploadProduct />

@@ -20,7 +20,7 @@ const CardProductDashboard =({ID,img,Name,Quantity,Price}) =>{
     }
 
     return <>
-            <tr key={ID} className="border-t rounded-3xl border-gray-700">
+            <tr key={ID} className="border-t border-gray-300 rounded-3xl ">
                 <td className="p-4">
                     <img
                     src={img}

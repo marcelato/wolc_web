@@ -5,25 +5,27 @@ import useProduct from "../../Actions/useProduct";
 import ProductCard from "../../Component/CardProduct/ProductCard";
 import Footer from "../../Component/Footer/Footer";
 import ShoppingCart from "../../Component/ShoppingCart/ShoppingCart";
-const Home =() =>{
-const {products,isLoadingProducts,productsError} =useSelector((state) => state.Product)
-const {GetCreateProduct} =useProduct()
 
-  const fetData =async() =>{
-    await GetCreateProduct()
-  }
-  
-  useEffect(() =>{
-      fetData()
-  },[])
-  
-  const fillContent =()=>{
-    if(isLoadingProducts){
-      return <p>Cargando</p>
+const Home =() =>{
+
+  const {products,isLoadingProducts,productsError} =useSelector((state) => state.Product)
+  const {GetCreateProduct} =useProduct()
+
+    const fetData =async() =>{
+      await GetCreateProduct()
     }
-    if(productsError){
-      return <p>Error </p>
-  }
+    
+    useEffect(() =>{
+        fetData()
+    },[])
+    
+    const fillContent =()=>{
+      if(isLoadingProducts){
+        return <p>Cargando</p>
+      }
+      if(productsError){
+        return <p>Error </p>
+    }
 
   return    <ProductCard products={products} /> 
           
