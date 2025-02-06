@@ -23,25 +23,24 @@ const LoadingPage =() =>{
     {
       title: "Cristal",
       image:
-        "https://github.com/rolandoto/image-pms/blob/main/Captura%20de%20pantalla%202024-12-13%20a%20la(s)%201.11.39%20p.m..png?raw=true", // Imagen de Apple
-     
+        "https://github.com/rolandoto/image-pms/blob/main/Logos/WhatsApp%20Image%202025-02-06%20at%202.31.05%20PM.jpeg?raw=true", // Imagen de Apple
     },
     {
       title: "Madera",
       image:
-        "https://github.com/rolandoto/image-pms/blob/main/Captura%20de%20pantalla%202024-12-13%20a%20la(s)%201.17.36%20p.m..png?raw=true", // Imagen de Apple
+        "https://github.com/rolandoto/image-pms/blob/main/Logos/WhatsApp%20Image%202025-02-06%20at%202.31.19%20PM.jpeg?raw=true", // Imagen de Apple
      
     },
     {
       title: "Metal",
       subtitle: "Fast that lasts.",
       image:
-        "https://github.com/rolandoto/image-pms/blob/main/Captura%20de%20pantalla%202024-12-13%20a%20la(s)%201.21.54%20p.m..png?raw=true", // Imagen de Apple
+        "https://github.com/rolandoto/image-pms/blob/main/Logos/WhatsApp%20Image%202025-01-31%20at%2012.35.04%20PM.jpeg?raw=true", // Imagen de Apple
     },
     {
         title: "intemperie",
         image:
-          "https://github.com/rolandoto/image-pms/blob/main/Captura%20de%20pantalla%202024-12-13%20a%20la(s)%201.25.34%20p.m..png?raw=true", // Imagen de Apple
+          "https://github.com/rolandoto/image-pms/blob/main/Logos/WhatsApp%20Image%202025-02-06%20at%202.31.42%20PM.jpeg?raw=true", // Imagen de Apple
       },
   ];
 
@@ -86,7 +85,7 @@ const LoadingPage =() =>{
     // Agrega más testimonios aquí
   ];
   
-  
+  //    <Gallery />
 
 
     return <>
@@ -118,10 +117,7 @@ const LoadingPage =() =>{
   ))}
 </div>
 
-
-    <Gallery />
-    <Feature />
-    <Specifications />      
+    <Feature />   
     <div ref={roomSectionRef} >
     <SliceProduct />    
     </div>

@@ -63,7 +63,8 @@ const IdState = () => {
                   htmlFor="orderId"
                   className="block text-gray-700 text-sm font-semibold mb-2"
                 >
-                  ID de pedido
+                  Numero del pedido
+
                 </label>
                 <input
                   id="orderId"
