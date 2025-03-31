@@ -35,12 +35,7 @@ const DetailProduct = () => {
   });
 
 
-  const routeTitles = {
-    DetailProduct: "Detalle del Producto",
-    57: "Producto 57",
-    Checkout: "Pagar",
-  };
-
+  
   const fillContent =()=>{
     if(isLoadingProductDetail){
       return <p>Cargando</p>
